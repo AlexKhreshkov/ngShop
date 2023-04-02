@@ -1,0 +1,23 @@
+<div *ngIf="product">
+  <h3>
+    <a
+      [title]="product.name + ' details'"
+      [routerLink]="['/products', product.id]"
+    >
+      {{product.name}}
+    </a>
+  </h3>
+  <div>
+    <div *ngIf="product.description">
+      Description: {{ product.description }}
+    </div>
+    <div>Count: {{product.count}}</div>
+    <div *ngIf="product.count < 10">
+      <div class="warning red">Low stock!!!</div>
+    </div>
+  </div>
+  <button>Add to cart</button>
+</div>
+<ng-template #notFound>
+  <h1>Product not found</h1>
+</ng-template>
